@@ -15,6 +15,7 @@
   --img-border-color: #D2D2D6;
   --img-border-color-hover: #D2D2D6B9;
   --txt-color: #000;
+  --menu-black-bg: #000000BE;
   --alternative-color: #0066cc;
   --font: 'San Francisco', sans-serif;
 }
@@ -58,19 +59,25 @@ a{
   width: min(100%, 64rem);
 
   margin-inline: auto;
+  padding-inline: 2rem;
 }
 
 /* HEADER */
 .header{
   width: 100%;
+}
 
-  padding-inline: 2rem;
+.header__navigation{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navigation__list{
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-basis: 85%;
 
   font-size: .875rem;
 }
@@ -82,12 +89,21 @@ a{
   }
 }
 
+.navigation__buttons{
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+}
+
+#openMenu, #menuBlackBg, .menu{
+  display: none;
+}
+
 /* MAIN */
 .main{
   width: 100%;
 
   margin-top: 3rem;
-  padding-inline: 2rem;
 }
 
 .main__content{
@@ -109,7 +125,7 @@ a{
 }
 
 .product-options__name{
-  width: 25rem;
+  max-width: 25rem;
 }
 
 .product-options__price-info{
@@ -335,6 +351,71 @@ p.price-info__price{
 
 /* RESPONSIVIDADE */
 @media screen and (max-width: 1023px) {
+  /* HEADER AND MENU */
+  .navigation__list{
+    display: none;
+  }
+
+  #openMenu{
+    display: block;
+  }
+
+  #menuBlackBg{
+    width: 100vw;
+    height: 100vh;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    cursor: pointer;
+
+    background-color: var(--menu-black-bg);
+  }
+
+  .menu{
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    transform: translateX(100%);
+
+    background-color: var(--bg-color);
+    
+    width: 45vw;
+    height: 100vh;
+
+    display: block;
+
+    padding-inline: 2rem;
+
+    transition: transform .3s ease-in-out;
+
+    overflow-y: auto;
+  }
+
+  .open-menu{
+    transform: translateX(0%);
+  }
+
+  .menu__header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 1.5rem;
+  }  
+
+  .menu__navigation-list{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+
+    font-size: 1.25rem;
+  }
+
+  /* MAIN */
   .main__content{
     grid-template-columns: 1fr;
     grid-template-areas: 
@@ -420,6 +501,14 @@ p.price-info__price{
   }
 }
 
-@media screen and (max-width: 768px) {
-  /* EM BREVE*/
+@media screen and (max-width: 500px) {
+  .container{
+    padding-inline: 1rem;
+  }
+  
+  .menu{
+    width: 100vw;
+
+    padding-inline: 1rem;
+  }
 }

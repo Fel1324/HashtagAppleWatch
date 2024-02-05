@@ -37,3 +37,28 @@ btnsChangeSize.forEach(btn => {
     size === "41 mm" ? imgPreview.classList.add("small-image") : imgPreview.classList.remove("small-image");
   });
 });
+
+// MENU LATERAL
+const menu = document.querySelector(".menu");
+const menuBlackBg = document.querySelector("#menuBlackBg");
+const btnOpenMenu = document.querySelector("#openMenu");
+const btnCloseMenu = document.querySelector("#closeMenu");
+
+btnOpenMenu.addEventListener("click", () => {
+  if(document.body.clientWidth <= 500){
+    menuBlackBg.style.display = "none";
+    console.log("cjehpoui");
+  }
+
+  menu.classList.add("open-menu");
+  menuBlackBg.style.display = "block";
+  document.body.style.overflowY = "hidden";
+});
+
+function closeMenu(){
+  menu.classList.remove("open-menu");
+  menuBlackBg.style.display = "none";
+  document.body.style.overflowY = "scroll";  
+}
+btnCloseMenu.addEventListener("click", closeMenu);
+menuBlackBg.addEventListener("click", closeMenu);
