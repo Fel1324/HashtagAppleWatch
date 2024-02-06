@@ -18,7 +18,7 @@
 
 <h2 id="img">🖼️ Imagem do projeto</h2>
 
-<img style="width: 60%; border-radius: 16px" src=".github/preview.jpeg" alt="Imagem do projeto">
+<img style="width: 68%; border-radius: 16px" src=".github/preview.jpeg" alt="Imagem do projeto">
 
 <br>
 
